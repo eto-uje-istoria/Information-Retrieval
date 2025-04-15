@@ -11,7 +11,7 @@
 
 | Ветка | Название | Описание |
 |-------|----------|----------|
-| [task1](https://github.com/eto-uje-istoria/Information-Retrieval/tree/task1) | Краулер | Скачивание и сохранение HTML-страниц |
+| [task1](https://github.com/eto-uje-istoria/Information-Retrieval/tree/task1) | Скрапер | Скачивание и сохранение HTML-страниц |
 | [task2](https://github.com/eto-uje-istoria/Information-Retrieval/tree/task2) | Лемматизация | Очистка текста, токенизация, лемматизация |
 | [task3](https://github.com/eto-uje-istoria/Information-Retrieval/tree/task3) | Индекс | Построение инвертированного индекса и булев поиск |
 | [task4](https://github.com/eto-uje-istoria/Information-Retrieval/tree/task4) | TF-IDF | Расчёт tf-idf весов по леммам и терминам |
