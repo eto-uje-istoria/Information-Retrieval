@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Научный поисковик</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Научный поисковик</h1>
+
+        <div class="mode-selector">
+            <label class="mode-label">
+                <span class="label-text">Режим поиска:</span>
+                <label class="switch">
+                    <input type="checkbox" id="modeToggle" name="mode" {% if mode == 'lemmas' %}checked{% endif %}>
+                    <span class="slider round"></span>
+                </label>
+                <span id="modeLabel">{{ mode }}</span>
+            </label>
+            <p class="mode-description">
+                Выберите режим: <strong>lemmas</strong> — анализ по леммам, <strong>tokens</strong> — без лемматизации.
+            </p>
+        </div>
+
+        <form method="POST" class="search-form">
+            <input type="text" name="query" value="{{ query }}" placeholder="Введите поисковый запрос..." required>
+            <input type="hidden" name="mode" id="modeInput" value="{{ mode }}">
+            <button type="submit">Искать</button>
+        </form>
+
+        {% if results %}
+            <div class="results">
+                <h3>Найдено результатов: {{ results|length }}</h3>
+                <ul>
+                    {% for url, score in results %}
+                        <li>
+                            <span class="score">{{ "%.4f"|format(score) }}</span>
+                            <a href="{{ url }}" target="_blank">{{ url }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+
+    <script src="{{ url_for('static', filename='mode-toggle.js') }}"></script>
+</body>
+</html>
